@@ -1,0 +1,36 @@
+{
+ "track": {
+  "id": "ambient_010",
+  "title": "Calm Track",
+  "artist": "pmiller",
+  "category": "Ambient",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "sourceName": "OpenGameArt",
+  "sourcePageTitle": "Calm Track",
+  "sourceUrl": "https://opengameart.org/content/calm-track",
+  "sourcePageAuthor": "pmiller",
+  "verifiedAt": "2026-08-26",
+  "originalFilename": "calm_track.ogg",
+  "originalSha256": "ab004477a4f37183beb5b6153fdccd6659181c2cca87b12bee68d29ffb7a4f33",
+  "audioPath": "audio/ambient/ambient_010.mp3",
+  "audioSha256": "27e1d8f88e2f643ae499b35829059e81d62370e17880afd48646da0fc2d88f96",
+  "audioSizeBytes": 6048748,
+  "previewPath": "previews/ambient/ambient_010_preview.mp3",
+  "previewSha256": "e094ba707e260cf6b54136c75bc2ede7dcdcaa513466f7ad9e6a7c80f2cfc68a",
+  "previewSizeBytes": 360847,
+  "transformation": "MP3 44.1 kHz stereo 192 kbps; preview fino a 30 secondi a 96 kbps"
+ },
+ "source": {
+  "id": "calm_track",
+  "title": "Calm Track",
+  "artist": "pmiller",
+  "pageAuthor": "pmiller",
+  "url": "https://opengameart.org/content/calm-track",
+  "evidence": "La pagina mostra License(s): CC0, descrive il brano come Public Domain e indica che non e' richiesta attribuzione.",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "verifiedAt": "2026-08-26",
+  "selectedTrackCount": 1
+ }
+}

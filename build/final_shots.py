@@ -1,0 +1,41 @@
+from shots2 import *
+OUTD="/mnt/user-data/outputs/jaali/store/screenshots/"
+def play_set(p, ctx_name, kind):
+    pass
+def portrait(br):
+    ctx,p=page(br,(360,640),3,True)
+    p.screenshot(path=OUTD+"portrait_01_home.png")
+    J(p,"window.__jaali.newGame('classic')"); p.wait_for_timeout(400)
+    score_up(p,34); p.wait_for_timeout(1600)
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(MID)); J(p,"window.__jaali.setTray(['domino_v','t_0','sq2'])"); p.wait_for_timeout(900)
+    p.screenshot(path=OUTD+"portrait_02_midgame.png")
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(G1)); J(p,"window.__jaali.setTray(['mono','mono','l4_0'])"); p.wait_for_timeout(300)
+    J(p,"window.__jaali.place(0,7,4)"); p.wait_for_timeout(1500)
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(G2)); J(p,"window.__jaali.setTray(['mono','l4_0','domino_h'])"); p.wait_for_timeout(500)
+    J(p,"window.__jaali.place(0,5,3)"); p.wait_for_timeout(210)
+    p.screenshot(path=OUTD+"portrait_03_lineclear.png")
+    ctx.close()
+    ctx,p=page(br,(360,640),3,True,{"dailyDone":False,"dailyDate":"","lastDaily":"2026-11-20"})
+    J(p,"window.__jaali.newGame('daily')"); p.wait_for_timeout(500)
+    score_up(p,14); p.wait_for_timeout(1400)
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(DAILY)); J(p,"window.__jaali.setTray(['corner3_1','i3_h','sq2'])"); p.wait_for_timeout(900)
+    p.screenshot(path=OUTD+"portrait_04_daily.png")
+    ctx.close()
+    ctx,p=page(br,(384,683),2.8125,True,{"streak":7,"lastDaily":"2026-11-21","dailyDate":"2026-11-21","dailyScore":1860,"dailyDone":True,"dailyBest":1860})
+    p.screenshot(path=OUTD+"portrait_05_daily_streak_home.png")
+    ctx.close()
+def landscape(br):
+    ctx,p=page(br,(1920,1080),1,False)
+    J(p,"window.__jaali.newGame('classic')"); p.wait_for_timeout(400)
+    score_up(p,34); p.wait_for_timeout(1600)
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(MID)); J(p,"window.__jaali.setTray(['domino_v','t_0','sq2'])"); p.wait_for_timeout(900)
+    p.screenshot(path=OUTD+"landscape_01_midgame.png")
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(G1)); J(p,"window.__jaali.setTray(['mono','mono','l4_0'])"); p.wait_for_timeout(300)
+    J(p,"window.__jaali.place(0,7,4)"); p.wait_for_timeout(1500)
+    J(p,"window.__jaali.setGrid(%s)"%json.dumps(G2)); J(p,"window.__jaali.setTray(['mono','l4_0','domino_h'])"); p.wait_for_timeout(500)
+    J(p,"window.__jaali.place(0,5,3)"); p.wait_for_timeout(210)
+    p.screenshot(path=OUTD+"landscape_02_lineclear.png")
+    ctx.close()
+with sync_playwright() as pw:
+    br=pw.chromium.launch(args=["--use-gl=swiftshader"])
+    portrait(br); landscape(br); br.close()
