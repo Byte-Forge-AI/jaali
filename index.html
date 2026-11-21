@@ -401,6 +401,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--lamp);outline-offse
                          ad failed or was skipped. cb(true) clears the middle 3x3.
    ========================================================================== */
 window.JaaliAds = {
+  /* Set to true when a real ad SDK is wired in; while false the Continue button stays hidden. */
+  rewardedAvailable: false,
   showInterstitial: function(){ /* TODO: show interstitial ad */ },
   showRewarded: function(cb){ /* TODO: show rewarded ad, then cb(true) */ cb(false); }
 };
@@ -854,7 +856,7 @@ function showOver(){
   $('#overBest').textContent=data.best.toLocaleString('en-US');
   $('#overExtra').innerHTML=daily?('Streak<b>'+displayStreak()+'</b>'):('Lines<b>'+S.lines+'</b>');
   $('#overBadge').hidden=!S.newBest;
-  $('#btnContinue').hidden=S.continueUsed;
+  $('#btnContinue').hidden=S.continueUsed||!(window.JaaliAds&&window.JaaliAds.rewardedAvailable);
   $('#btnAgain').hidden=daily;
   var o=$('#over');o.classList.add('show');o.setAttribute('aria-hidden','false');
 }
